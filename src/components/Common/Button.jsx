@@ -6,14 +6,18 @@ const ButtonStyle = styled.button`
   border-radius: 15px;
   background: var(--color-white30);
   padding: ${props => props.padding || '13px'};
-  &:hover {
+  &:not(:disabled):hover {
     background: var(--color-white70);
     color: var(--color-blue);
+  }
+  &:disabled {
+    cursor: initial;
   }
 `;
 
 export default function Button(props) {
-  const { type, text, onBtnClick, dataTestId, width, padding } = props;
+  const { type, text, onBtnClick, dataTestId, width, padding, disabled } = props;
+  
   return (
     <ButtonStyle
       type={type ? type : 'button'}
@@ -21,6 +25,7 @@ export default function Button(props) {
       data-testid={dataTestId}
       width={width}
       padding={padding}
+      disabled={disabled}
     >
       {text}
     </ButtonStyle>
