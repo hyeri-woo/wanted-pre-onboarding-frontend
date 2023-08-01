@@ -23,7 +23,6 @@ const WarningText = styled.p`
 
 export default function Input(props) {
   const {
-    value,
     onChange,
     type,
     inputId,
@@ -32,14 +31,13 @@ export default function Input(props) {
     placeholder,
     dataTestId,
   } = props;
-  
+
   return (
     <>
       <label className="a11y-hidden" htmlFor={inputId}>
         {labelText}
       </label>
       <InputStyle
-        value={value}
         onChange={onChange}
         type={type ? type : 'text'}
         id={inputId}

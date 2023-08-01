@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Button from './Common/Button';
 import Input from './Common/Input';
@@ -14,17 +14,13 @@ const FormStyle = styled.form`
 `;
 
 export default function Form(props) {
-  const { btnText, onSignUpSubmit } = props;
-  const [isValidEmail, setIsValidEmail] = useState(false);
-  const [isValidPw, setIsValidPw] = useState(false);
-  const [email, onEmailChange, emailWarning] = useEmail(setIsValidEmail);
-  const [password, onPasswordChange, passwordWarning] =
-    usePassword(setIsValidPw);
+  const { btnText, onSubmit } = props;
+  const [onEmailChange, emailWarning, isValidEmail] = useEmail();
+  const [onPasswordChange, passwordWarning, isValidPw] = usePassword();
 
   return (
-    <FormStyle onSumbit={onSignUpSubmit}>
+    <FormStyle onSumbit={onSubmit}>
       <Input
-        value={email}
         onChange={onEmailChange}
         type="email"
         id="input-email"
@@ -34,7 +30,6 @@ export default function Form(props) {
         warning={emailWarning}
       />
       <Input
-        value={password}
         onChange={onPasswordChange}
         type="password"
         id="input-pw"
