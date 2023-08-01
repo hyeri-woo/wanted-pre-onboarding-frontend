@@ -5,9 +5,9 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        color: white;
     }
     html, body, #root {
-        font-size: 10px;
         background: rgb(106,221,190);
         background: linear-gradient(130deg, rgba(106,221,190,1) 0%, rgba(83,140,247,1) 81%, rgba(52,95,233,1) 100%);
         height: 100%;
@@ -47,6 +47,7 @@ const GlobalStyle = createGlobalStyle`
         --color-white20: rgba(255, 255, 255, 0.2);
         --color-white30: rgba(255, 255, 255, 0.3);
         --color-white70: rgba(255, 255, 255, 0.7);
+        --color-blue: #5CACE2;
     }
 `;
 
