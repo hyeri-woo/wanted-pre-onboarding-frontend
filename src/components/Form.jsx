@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from './Common/Button';
 import Input from './Common/Input';
+import useEmail from '../hook/useEmail';
+import usePassword from '../hook/usePassword';
 
 const FormStyle = styled.form`
   padding: 30px;
@@ -12,10 +14,18 @@ const FormStyle = styled.form`
 `;
 
 export default function Form(props) {
-  const { btnText, emailWarning, pwWarning } = props;
+  const { btnText, onSignUpSubmit } = props;
+  const [isValidEmail, setIsValidEmail] = useState(false);
+  const [isValidPw, setIsValidPw] = useState(false);
+  const [email, onEmailChange, emailWarning] = useEmail(setIsValidEmail);
+  const [password, onPasswordChange, passwordWarning] =
+    usePassword(setIsValidPw);
+
   return (
-    <FormStyle>
+    <FormStyle onSumbit={onSignUpSubmit}>
       <Input
+        value={email}
+        onChange={onEmailChange}
         type="email"
         id="input-email"
         placeholder="Email"
@@ -24,14 +34,21 @@ export default function Form(props) {
         warning={emailWarning}
       />
       <Input
+        value={password}
+        onChange={onPasswordChange}
         type="password"
         id="input-pw"
         placeholder="Password"
         labelText="비밀번호를 입력해주세요."
         dataTestId="password-input"
-        warning={pwWarning}
+        warning={passwordWarning}
       />
-      <Button type="submit" text={btnText} dataTestId="signup-button" />
+      <Button
+        type="submit"
+        text={btnText}
+        dataTestId="signup-button"
+        disabled={!(isValidEmail && isValidPw)}
+      />
     </FormStyle>
   );
 }
