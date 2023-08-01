@@ -19,7 +19,7 @@ export default function Form(props) {
   const [onPasswordChange, passwordWarning, isValidPw] = usePassword();
 
   return (
-    <FormStyle onSumbit={onSubmit}>
+    <FormStyle onSubmit={onSubmit}>
       <Input
         onChange={onEmailChange}
         type="email"
