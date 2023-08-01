@@ -13,4 +13,13 @@ const ContainerStyle = styled.div`
   overflow: hidden;
 `;
 
-export { ContainerStyle };
+const H1Style = styled.h1`
+  font-weight: 400;
+  text-align: center;
+  width: 100%;
+  padding: 15px 15px 13px;
+  font-size: 1.5rem;
+  background: var(--color-white20);
+`;
+
+export { ContainerStyle, H1Style };
