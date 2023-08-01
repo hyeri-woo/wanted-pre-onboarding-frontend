@@ -13,6 +13,14 @@ const ButtonStyle = styled.button`
 `;
 
 export default function Button(props) {
-  const { text, onBtnClick } = props;
-  return <ButtonStyle onClick={onBtnClick}>{text}</ButtonStyle>;
+  const { type, text, onBtnClick, dataTestId } = props;
+  return (
+    <ButtonStyle
+      type={type ? type : 'button'}
+      onClick={onBtnClick}
+      data-testid={dataTestId}
+    >
+      {text}
+    </ButtonStyle>
+  );
 }
