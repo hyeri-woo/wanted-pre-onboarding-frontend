@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     button, input[type=button] {    
         background: none;
         border: none;
+        cursor: pointer;
     }
     ol, ul {
         list-style: none;
