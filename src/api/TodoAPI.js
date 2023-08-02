@@ -4,7 +4,7 @@ const GetTodoAPI = async (token) => {
   try {
     const response = await api.get('/todos', {
       headers: {
-        'Authorization': 'Bearer ' + token,
+        'Authorization': `Bearer ${token}`,
       },
     });
     if (response.status === 200) {
@@ -16,16 +16,15 @@ const GetTodoAPI = async (token) => {
 };
 
 const CreateTodoAPI = async (token, todo) => {
-  console.log(token, todo);
   try {
     const response = await api.post(
       '/todos',
       {
-        todo: todo,
+        'todo': todo,
       },
       {
         headers: {
-          'Authorization': 'Bearer ' + token,
+          'Authorization': `Bearer ${token}`,
         },
       },
     );
@@ -34,8 +33,29 @@ const CreateTodoAPI = async (token, todo) => {
     }
   } catch (error) {
     console.error(error);
-    return false;
   }
 };
 
-export { GetTodoAPI, CreateTodoAPI };
+const UpdateTodoAPI = async (token, id, checked, todo) => {
+  try {
+    const response = await api.put(
+      `/todos/${id}`,
+      {
+        'todo': todo,
+        'isCompleted': checked,
+      },
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      },
+    );
+    if (response.status === 201) {
+      return response.data;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export { GetTodoAPI, CreateTodoAPI, UpdateTodoAPI };

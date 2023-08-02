@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../Common/Button';
+import { UpdateTodoAPI } from '../../api/TodoAPI';
 
 const TodoItemStyle = styled.li`
   display: flex;
@@ -21,10 +22,22 @@ const TodoItemStyle = styled.li`
 
 export default function TodoItem(props) {
   const { id, checked } = props;
+  const [isCheck, setIsCheck] = useState(checked);
+
+  const handleCheckChange = async (e) => {
+    setIsCheck(e.target.checked);
+    const data = await UpdateTodoAPI(
+      localStorage.getItem('token'),
+      id,
+      e.target.checked,
+      e.target.nextElementSibling.innerText,
+    );
+  };
+
   return (
     <TodoItemStyle id={id}>
       <label>
-        <input type="checkbox" checked={checked} />
+        <input type="checkbox" checked={isCheck} onChange={handleCheckChange} />
         <span>{props.children}</span>
       </label>
       <div className="btn-wrapper">
