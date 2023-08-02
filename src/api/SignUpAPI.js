@@ -1,6 +1,6 @@
 import api from './index';
 
-const SignInAPI = async (email, password) => {
+const SignUpAPI = async (email, password) => {
   try {
     const response = await api.post('/auth/signup', {
       'email': email,
@@ -17,4 +17,4 @@ const SignInAPI = async (email, password) => {
   return false;
 };
 
-export default SignInAPI;
+export default SignUpAPI;
