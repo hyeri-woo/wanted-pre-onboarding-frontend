@@ -13,6 +13,7 @@ const InputStyle = styled.input`
     border-bottom: 1px solid white;
   }
 `;
+
 const WarningText = styled.p`
   font-size: 0.7em;
   text-align: start;
@@ -21,17 +22,28 @@ const WarningText = styled.p`
 `;
 
 export default function Input(props) {
-  const { type, inputId, labelText, warning, placeholder, dataTestId } = props;
+  const {
+    onChange,
+    type,
+    inputId,
+    labelText,
+    warning,
+    placeholder,
+    dataTestId,
+  } = props;
+
   return (
     <>
       <label className="a11y-hidden" htmlFor={inputId}>
         {labelText}
       </label>
       <InputStyle
+        onChange={onChange}
         type={type ? type : 'text'}
         id={inputId}
         placeholder={placeholder}
         data-testid={dataTestId}
+        autoComplete={type === 'password' ? 'off' : 'on'}
       />
       <WarningText>{warning}</WarningText>
     </>
