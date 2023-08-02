@@ -28,7 +28,7 @@ export default function TodoEdit(props) {
       const data = await UpdateTodoAPI(token, id, checked, inputValue);
       setTodo((prev) => {
         const arr = [...prev];
-        arr[arr.findIndex((item) => item.id == id)].todo = inputValue;
+        arr[arr.findIndex((item) => item.id === id)].todo = data.todo;
         return arr;
       });
       setMode('view');
