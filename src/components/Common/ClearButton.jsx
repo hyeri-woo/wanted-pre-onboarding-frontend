@@ -13,15 +13,13 @@ const ButtonStyle = styled.button`
 `;
 
 export default function ClearButton(props) {
-  const { type, text, onBtnClick, dataTestId, width, padding, disabled } = props;
+  const { type, text, onBtnClick, dataTestId, disabled } = props;
   
   return (
     <ButtonStyle
       type={type ? type : 'button'}
       onClick={onBtnClick}
       data-testid={dataTestId}
-      width={width}
-      padding={padding}
       disabled={disabled}
     >
       {text}
