@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { H1Style, ContainerStyle } from '../styles/CommonStyle';
 import Form from '../components/Form';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import SignInAPI from '../api/SignInAPI';
 
 export default function SignIn() {
   const navigate = useNavigate();
-  const email = useSelector((state) => state.account.email);
-  const password = useSelector((state) => state.account.password);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +22,12 @@ export default function SignIn() {
   return (
     <ContainerStyle>
       <H1Style>SIGN IN</H1Style>
-      <Form btnText="로그인" onSubmit={handleSubmit} />
+      <Form
+        btnText="로그인"
+        onSubmit={handleSubmit}
+        setEmail={setEmail}
+        setPassword={setPassword}
+      />
     </ContainerStyle>
   );
 }

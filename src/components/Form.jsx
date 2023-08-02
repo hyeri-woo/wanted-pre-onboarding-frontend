@@ -14,9 +14,10 @@ const FormStyle = styled.form`
 `;
 
 export default function Form(props) {
-  const { btnText, onSubmit } = props;
-  const [onEmailChange, emailWarning, isValidEmail] = useEmail();
-  const [onPasswordChange, passwordWarning, isValidPw] = usePassword();
+  const { btnText, onSubmit, setEmail, setPassword } = props;
+  const [onEmailChange, emailWarning, isValidEmail] = useEmail(setEmail);
+  const [onPasswordChange, passwordWarning, isValidPw] =
+    usePassword(setPassword);
 
   return (
     <FormStyle onSubmit={onSubmit}>
