@@ -17,7 +17,7 @@ export default function SignUp() {
     dispatch(accountSlice.actions.reset());
     const success = await SignUpAPI(email, password);
     if(success) {
-      alert("회원가입에 성공하셨습니다! 서비스를 이용하기 위해 ");
+      alert("회원가입에 성공하셨습니다! 서비스를 이용하기 위해 로그인해주세요.");
       navigate('/signin');
     } else {
       alert("회원가입에 실패하였습니다. 다시 시도해주세요!");
