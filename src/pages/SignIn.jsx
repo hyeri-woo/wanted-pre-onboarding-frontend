@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { H1Style, ContainerStyle } from '../styles/CommonStyle';
+import { HeaderStyle, ContainerStyle } from '../styles/CommonStyle';
 import Form from '../components/Form';
 import { useNavigate } from 'react-router-dom';
 import SignInAPI from '../api/SignInAPI';
@@ -21,8 +21,11 @@ export default function SignIn() {
   };
   return (
     <ContainerStyle>
-      <H1Style>SIGN IN</H1Style>
+      <HeaderStyle>
+        <h1>SIGN IN</h1>
+      </HeaderStyle>
       <Form
+        isJoin={false}
         btnText="로그인"
         onSubmit={handleSubmit}
         setEmail={setEmail}

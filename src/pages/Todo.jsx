@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { H1Style, ContainerStyle } from '../styles/CommonStyle';
+import { HeaderStyle, ContainerStyle } from '../styles/CommonStyle';
 import TodoList from '../components/Todo/TodoList';
 import TodoForm from '../components/Todo/TodoForm';
 import TodoNav from '../components/Todo/TodoNav';
@@ -25,7 +25,9 @@ export default function Todo() {
 
   return (
     <Container>
-      <H1Style>TO DO</H1Style>
+      <HeaderStyle>
+        <h1>TO DO</h1>
+      </HeaderStyle>
       <TodoNav />
       <TodoList todo={todo} setTodo={setTodo} />
       <TodoForm setTodo={setTodo} />

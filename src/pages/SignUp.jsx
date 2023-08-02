@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { H1Style, ContainerStyle } from '../styles/CommonStyle';
+import { HeaderStyle, ContainerStyle } from '../styles/CommonStyle';
 import Form from '../components/Form';
 import { useNavigate } from 'react-router-dom';
 import SignUpAPI from '../api/SignUpAPI';
@@ -24,8 +24,11 @@ export default function SignUp() {
 
   return (
     <ContainerStyle>
-      <H1Style>SIGN UP</H1Style>
+      <HeaderStyle>
+        <h1>SIGN UP</h1>
+      </HeaderStyle>
       <Form
+        isJoin={true}
         btnText="회원가입"
         onSubmit={handleSubmit}
         setEmail={setEmail}
