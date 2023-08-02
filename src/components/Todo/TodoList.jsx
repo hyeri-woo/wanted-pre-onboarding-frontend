@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import TodoItem from './TodoItem';
+import TodoItem from './TodoItem/TodoItem';
 
 const TodoListStyle = styled.ul`
   max-height: 500px;
@@ -25,9 +25,13 @@ export default function TodoList(props) {
         <p>일정이 없습니다.</p>
       ) : (
         todo.map((item) => (
-          <TodoItem id={item.id} checked={item.isCompleted} setTodo={setTodo}>
-            {item.todo}
-          </TodoItem>
+          <TodoItem
+            key={item.id}
+            todo={item.todo}
+            id={item.id}
+            isCompleted={item.isCompleted}
+            setTodo={setTodo}
+          />
         ))
       )}
     </TodoListStyle>
