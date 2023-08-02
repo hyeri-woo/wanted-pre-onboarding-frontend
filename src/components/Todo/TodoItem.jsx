@@ -20,9 +20,9 @@ const TodoItemStyle = styled.li`
 `;
 
 export default function TodoItem(props) {
-  const { checked } = props;
+  const { id, checked } = props;
   return (
-    <TodoItemStyle>
+    <TodoItemStyle id={id}>
       <label>
         <input type="checkbox" checked={checked} />
         <span>{props.children}</span>

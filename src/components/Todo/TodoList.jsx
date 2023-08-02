@@ -8,17 +8,27 @@ const TodoListStyle = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  padding: 30px;
+  padding: 20px 30px;
+  clear: both;
+  p {
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+  }
 `;
 
-export default function TodoList() {
+export default function TodoList({ todo }) {
   return (
     <TodoListStyle>
-      <TodoItem checked>todo1</TodoItem>
-      <TodoItem checked>todo1</TodoItem>
-      <TodoItem checked>todo1</TodoItem>
-      <TodoItem checked>todo1</TodoItem>
-      <TodoItem checked>todo1</TodoItem>
+      {todo.length === 0 ? (
+        <p>일정이 없습니다.</p>
+      ) : (
+        todo.map((item) => (
+          <TodoItem id={item.id} checked={item.isCompleted}>
+            {item.todo}
+          </TodoItem>
+        ))
+      )}
     </TodoListStyle>
   );
 }
