@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import TodoItem from './TodoItem/TodoItem';
 
@@ -19,6 +19,7 @@ const TodoListStyle = styled.ul`
 
 export default function TodoList(props) {
   const { todo, setTodo } = props;
+
   return (
     <TodoListStyle>
       {todo.length === 0 ? (
