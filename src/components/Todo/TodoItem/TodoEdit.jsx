@@ -54,16 +54,16 @@ export default function TodoEdit(props) {
         <Button
           type="submit"
           text="제출"
-          width="60px"
-          padding="5px"
+          btnwidth="60px"
+          btnpadding="5px"
           dataTestId="submit-button"
           onBtnClick={handleEditClick}
         />
         <Button
           text="취소"
-          width="60px"
-          padding="5px"
-          dataTestId="cancle-button"
+          btnwidth="60px"
+          btnpadding="5px"
+          dataTestId="cancel-button"
           onBtnClick={handleCancelClick}
         />
       </span>

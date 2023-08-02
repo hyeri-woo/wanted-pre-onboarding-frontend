@@ -28,15 +28,15 @@ export default function TodoView(props) {
       <span className="btn-wrapper">
         <Button
           text="수정"
-          width="60px"
-          padding="5px"
+          btnwidth="60px"
+          btnpadding="5px"
           dataTestId="modify-button"
           onBtnClick={handleEditClick}
         />
         <Button
           text="삭제"
-          width="60px"
-          padding="5px"
+          btnwidth="60px"
+          btnpadding="5px"
           dataTestId="delete-button"
           onBtnClick={handleDeleteClick}
         />
