@@ -17,12 +17,13 @@ const InputStyle = styled.input`
 const WarningText = styled.p`
   font-size: 0.7em;
   text-align: start;
-  padding: 7px 20px;
+  padding: 7px 15px;
   height: 28px;
 `;
 
 export default function Input(props) {
   const {
+    value,
     onChange,
     type,
     inputId,
@@ -38,6 +39,7 @@ export default function Input(props) {
         {labelText}
       </label>
       <InputStyle
+        value={value}
         onChange={onChange}
         type={type ? type : 'text'}
         id={inputId}
