@@ -58,4 +58,20 @@ const UpdateTodoAPI = async (token, id, checked, todo) => {
   }
 };
 
-export { GetTodoAPI, CreateTodoAPI, UpdateTodoAPI };
+const DeleteTodoAPI = async (token, id) => {
+  try {
+    const response = await api.delete(`/todos/${id}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+    });
+    console.log(response);
+    if (response.status === 204) {
+      return true;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export { GetTodoAPI, CreateTodoAPI, UpdateTodoAPI, DeleteTodoAPI };

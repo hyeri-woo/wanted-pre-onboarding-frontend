@@ -17,14 +17,15 @@ const TodoListStyle = styled.ul`
   }
 `;
 
-export default function TodoList({ todo }) {
+export default function TodoList(props) {
+  const { todo, setTodo } = props;
   return (
     <TodoListStyle>
       {todo.length === 0 ? (
         <p>일정이 없습니다.</p>
       ) : (
         todo.map((item) => (
-          <TodoItem id={item.id} checked={item.isCompleted}>
+          <TodoItem id={item.id} checked={item.isCompleted} setTodo={setTodo}>
             {item.todo}
           </TodoItem>
         ))

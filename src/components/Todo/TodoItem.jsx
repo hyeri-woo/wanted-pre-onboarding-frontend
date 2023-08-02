@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../Common/Button';
-import { UpdateTodoAPI } from '../../api/TodoAPI';
+import { UpdateTodoAPI, DeleteTodoAPI } from '../../api/TodoAPI';
 
 const TodoItemStyle = styled.li`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
   word-break: break-all;
   input {
@@ -21,17 +22,27 @@ const TodoItemStyle = styled.li`
 `;
 
 export default function TodoItem(props) {
-  const { id, checked } = props;
+  const { id, checked, setTodo } = props;
+  const token = localStorage.getItem('token');
   const [isCheck, setIsCheck] = useState(checked);
 
   const handleCheckChange = async (e) => {
     setIsCheck(e.target.checked);
     const data = await UpdateTodoAPI(
-      localStorage.getItem('token'),
+      token,
       id,
       e.target.checked,
       e.target.nextElementSibling.innerText,
     );
+  };
+
+  const handleDeleteClick = async (e) => {
+    if (window.confirm('삭제하시겠습니까?')) {
+      const success = await DeleteTodoAPI(token, id);
+      if (success) {
+        setTodo((prev) => prev.filter((item) => item.id !== id));
+      }
+    }
   };
 
   return (
@@ -52,6 +63,7 @@ export default function TodoItem(props) {
           width="60px"
           padding="5px"
           dataTestId="delete-button"
+          onBtnClick={handleDeleteClick}
         />
       </div>
     </TodoItemStyle>

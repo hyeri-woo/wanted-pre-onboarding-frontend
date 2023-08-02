@@ -27,7 +27,7 @@ export default function Todo() {
     <Container>
       <H1Style>TO DO</H1Style>
       <TodoNav />
-      <TodoList todo={todo} />
+      <TodoList todo={todo} setTodo={setTodo} />
       <TodoForm setTodo={setTodo} />
     </Container>
   );
