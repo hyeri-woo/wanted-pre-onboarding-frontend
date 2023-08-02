@@ -25,4 +25,34 @@ const HeaderStyle = styled.header`
   }
 `;
 
-export { ContainerStyle, HeaderStyle };
+const CheckBoxStyle = styled.label`
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.75em;
+  input[type='checkbox'] {
+    appearance: none;
+    background: var(--color-white70);
+    margin: 0;
+    font: inherit;
+    width: 1.15em;
+    height: 1.15em;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+  }
+  input[type='checkbox']::before {
+    content: '';
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    background: var(--color-blue);
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+  }
+  input[type='checkbox']:checked::before {
+    transform: scale(1);
+  }
+`;
+
+export { ContainerStyle, HeaderStyle, CheckBoxStyle };

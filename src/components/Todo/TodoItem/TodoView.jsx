@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../Common/Button';
+import { CheckBoxStyle } from '../../../styles/CommonStyle';
 import { DeleteTodoAPI } from '../../../api/TodoAPI';
 
 export default function TodoView(props) {
@@ -21,10 +22,10 @@ export default function TodoView(props) {
 
   return (
     <>
-      <label>
+      <CheckBoxStyle>
         <input type="checkbox" checked={checked} onChange={onCheckChange} />
         <span>{text}</span>
-      </label>
+      </CheckBoxStyle>
       <span className="btn-wrapper">
         <Button
           text="수정"

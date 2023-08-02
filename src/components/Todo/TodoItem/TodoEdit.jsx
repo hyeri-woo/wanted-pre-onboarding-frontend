@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../../Common/Button';
+import { CheckBoxStyle } from '../../../styles/CommonStyle';
 import { UpdateTodoAPI } from '../../../api/TodoAPI';
 
-const LabelStyle = styled.label`
-  width: 80%;
+const LabelStyle = styled(CheckBoxStyle)`
   input[type='text'] {
-    width: 80%;
+    width: 100%;
     background: var(--color-white70);
     background: none;
     font-size: 1rem;
