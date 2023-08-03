@@ -22,7 +22,6 @@ const TodoFormStyle = styled.form`
 
 export default function TodoForm(props) {
   const { setTodo } = props;
-  const [isValid, setIsValid] = useState(false);
   const [item, setItem] = useState('');
   const [warning, setWarning] = useState('');
 
@@ -30,21 +29,16 @@ export default function TodoForm(props) {
     setItem(e.target.value);
     if (e.target.value === '') {
       setWarning('빈 값을 일정으로 추가할 수 없습니다.');
-      setIsValid(false);
     } else {
       setWarning('');
-      setIsValid(true);
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(item);
     const data = await CreateTodoAPI(localStorage.getItem('token'), item);
-    console.log(data);
     if (data) {
       setItem('');
-      setIsValid(false);
       setTodo((prev) => [...prev, data]);
     }
   };
@@ -67,7 +61,7 @@ export default function TodoForm(props) {
         type="submit"
         onBtnClick={handleSubmit}
         dataTestId="new-todo-add-button"
-        disabled={!isValid}
+        disabled={item===''}
       />
     </TodoFormStyle>
   );
