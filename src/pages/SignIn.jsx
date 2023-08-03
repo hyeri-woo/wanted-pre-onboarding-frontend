@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HeaderStyle, ContainerStyle } from '../styles/CommonStyle';
-import Form from '../components/Form';
+import Form from '../components/Auth/Form';
 import { useNavigate } from 'react-router-dom';
 import SignInAPI from '../api/SignInAPI';
 

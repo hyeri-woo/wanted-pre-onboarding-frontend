@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from './Common/Button';
-import Input from './Common/Input';
-import useEmail from '../hook/useEmail';
-import usePassword from '../hook/usePassword';
+import Button from '../Common/Button';
+import Input from '../Common/Input';
+import useEmail from '../../hook/useEmail';
+import usePassword from '../../hook/usePassword';
 
 const FormStyle = styled.form`
   padding: 30px;
