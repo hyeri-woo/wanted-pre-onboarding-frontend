@@ -12,6 +12,7 @@ const FormStyle = styled.form`
 `;
 
 const LabelStyle = styled(CheckBoxStyle)`
+  width: 80%;
   input[type='text'] {
     width: 100%;
     background: var(--color-white70);
@@ -41,15 +42,13 @@ export default function TodoEdit(props) {
 
   const handleEditClick = async (e) => {
     e.preventDefault();
-    if (window.confirm('수정하시겠습니까?')) {
-      const data = await UpdateTodoAPI(token, id, checked, inputValue);
-      setTodo((prev) => {
-        const arr = [...prev];
-        arr[arr.findIndex((item) => item.id === id)].todo = data.todo;
-        return arr;
-      });
-      setMode('view');
-    }
+    const data = await UpdateTodoAPI(token, id, checked, inputValue);
+    setTodo((prev) => {
+      const arr = [...prev];
+      arr[arr.findIndex((item) => item.id === id)].todo = data.todo;
+      return arr;
+    });
+    setMode('view');
   };
 
   const handleCancelClick = async (e) => {

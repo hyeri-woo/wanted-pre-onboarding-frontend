@@ -12,11 +12,9 @@ export default function TodoView(props) {
   };
 
   const handleDeleteClick = async (e) => {
-    if (window.confirm('삭제하시겠습니까?')) {
-      const success = await DeleteTodoAPI(token, id);
-      if (success) {
-        setTodo((prev) => prev.filter((item) => item.id !== id));
-      }
+    const success = await DeleteTodoAPI(token, id);
+    if (success) {
+      setTodo((prev) => prev.filter((item) => item.id !== id));
     }
   };
 
