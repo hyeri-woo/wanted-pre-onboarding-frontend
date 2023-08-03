@@ -1,6 +1,9 @@
-# WANTED 프리온보딩 선발 과제 
+# WANTED 프리온보딩 프론트엔트 인턴쉽 선발 과제 
+지원자: 우혜리
+<details>
+<summary>Commit 컨벤션</summary>
+<div markdown="1">
 
-## [커밋 컨벤션]
 |태그 이름|설명|이모지|
 |---------|----|------|
 |Initial|시스템 초기 설정|🎉|
@@ -17,3 +20,62 @@
 |Merge|파일 또는 브랜치 병합할 경우|🔀|
 |Dir|폴더 및 문서 구조 변경할 경우 | 📁|
 |!BREAKING CHANGE	|커다란 API 변경의 경우|👽|
+
+</div>
+</details>
+
+
+## 1. 배포 링크
+
+## 2. 사용 라이브러리
+```js
+"axios": "^1.4.0",
+"react-router-dom": "^6.14.2",
+"styled-components": "^6.0.5",
+```
+
+## 3. 프로젝트 실행 방법
+1. 프로젝트 패키지 설치
+```
+npm install 
+```
+2. 프로젝트 실행
+```
+npm start
+```
+
+## 4. 프로젝트 구조
+```
+
+📦 src
+├── 📂 api
+├── 📂 components
+│   ├── 📂 Common
+│   ├── 📂 Auth
+│   │    └── 📄 Form
+│   ├── 📂 Todo
+│   │    ├── 📂 TodoItem
+│   │    |    ├── 📄 TodoEdit
+│   │    |    ├── 📄 TodoItem
+│   │    |    └── 📄 TodoView
+│   │    ├── 📄 TodoForm
+│   │    ├── 📄 TodoList
+│   │    └── 📄 TodoNav
+├── 📂 hooks
+│   │    ├── 📄 useEmail
+│   │    └── 📄 usePassword
+├── 📂 pages
+│   ├── 📄 Home
+│   ├── 📄 SignIn
+│   ├── 📄 SignUp
+│   └── 📄 Todo
+├── 📂 routes
+│   │    ├── 📄 PrivateRoute
+│   │    └── 📄 Router
+└── 📂 styles
+
+```
+
+ 
+## 5. 기능 시연
+ 
