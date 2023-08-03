@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Button from '../../Common/Button';
 import { CheckBoxStyle } from '../../../styles/CommonStyle';
@@ -25,6 +25,15 @@ export default function TodoEdit(props) {
   const { text, id, checked, setTodo, setMode, onCheckChange } = props;
   const token = localStorage.getItem('token');
   const [inputValue, setInputValue] = useState(text);
+  const editRef = useRef(null);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', (e) => {
+      if (editRef.current && !editRef.current.contains(e.target)) {
+        setMode('view');
+      }
+    });
+  }, [editRef]);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -48,7 +57,7 @@ export default function TodoEdit(props) {
   };
 
   return (
-    <FormStyle>
+    <FormStyle ref={editRef}>
       <LabelStyle>
         <input type="checkbox" checked={checked} onChange={onCheckChange} />
         <input
