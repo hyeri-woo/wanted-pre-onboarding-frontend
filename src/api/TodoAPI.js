@@ -50,7 +50,7 @@ const UpdateTodoAPI = async (token, id, checked, todo) => {
         },
       },
     );
-    if (response.status === 201) {
+    if (response.status === 200) {
       return response.data;
     }
   } catch (error) {

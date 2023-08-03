@@ -15,21 +15,35 @@ const Container = styled(ContainerStyle)`
 
 export default function Todo() {
   const [todo, setTodo] = useState([]);
+  const [filter, setFilter] = useState('전체');
+  const [filterTodo, setFilterTodo] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await GetTodoAPI(localStorage.getItem('token'));
       setTodo(data);
+      setFilterTodo(data);
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (filter === '전체') {
+      setFilterTodo(todo);
+    } else if (filter === '완료') {
+      setFilterTodo(todo.filter((item) => item.isCompleted));
+    } else if (filter === '미완') {
+      setFilterTodo(todo.filter((item) => !item.isCompleted));
+    }
+  }, [filter, todo]);
 
   return (
     <Container>
       <HeaderStyle>
         <h1>TO DO</h1>
       </HeaderStyle>
-      <TodoNav />
-      <TodoList todo={todo} setTodo={setTodo} />
+      <TodoNav filter={filter} setFilter={setFilter} />
+      <TodoList todo={filterTodo} setTodo={setTodo} />
       <TodoForm setTodo={setTodo} />
     </Container>
   );

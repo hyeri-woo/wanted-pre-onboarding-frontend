@@ -31,7 +31,9 @@ export default function SignUp() {
         isJoin={true}
         btnText="회원가입"
         onSubmit={handleSubmit}
+        email={email}
         setEmail={setEmail}
+        password={password}
         setPassword={setPassword}
       />
     </ContainerStyle>

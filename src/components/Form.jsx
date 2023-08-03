@@ -4,7 +4,6 @@ import Button from './Common/Button';
 import Input from './Common/Input';
 import useEmail from '../hook/useEmail';
 import usePassword from '../hook/usePassword';
-import { useNavigate } from 'react-router-dom';
 
 const FormStyle = styled.form`
   padding: 30px;
@@ -15,7 +14,7 @@ const FormStyle = styled.form`
 `;
 
 export default function Form(props) {
-  const { isJoin, btnText, onSubmit, setEmail, setPassword } = props;
+  const { isJoin, btnText, onSubmit, email, setEmail, password, setPassword } = props;
   const [onEmailChange, emailWarning, isValidEmail] = useEmail(setEmail);
   const [onPasswordChange, passwordWarning, isValidPw] =
     usePassword(setPassword);
@@ -23,6 +22,7 @@ export default function Form(props) {
   return (
     <FormStyle onSubmit={onSubmit}>
       <Input
+        value={email}
         onChange={onEmailChange}
         type="email"
         id="input-email"
@@ -32,6 +32,7 @@ export default function Form(props) {
         warning={emailWarning}
       />
       <Input
+        value={password}
         onChange={onPasswordChange}
         type="password"
         id="input-pw"

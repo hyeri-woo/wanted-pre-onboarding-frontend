@@ -28,6 +28,7 @@ export default function TodoItem(props) {
   const [isCheck, setIsCheck] = useState(isCompleted);
 
   const onCheckChange = async (e) => {
+    setMode('view');
     setIsCheck(e.target.checked);
     const data = await UpdateTodoAPI(
       localStorage.getItem('token'),
@@ -35,6 +36,12 @@ export default function TodoItem(props) {
       e.target.checked,
       e.target.nextElementSibling.innerText,
     );
+    setTodo((prev) => {
+      const arr = [...prev];
+      arr[arr.findIndex((item) => item.id === id)].isCompleted =
+        data.isCompleted;
+      return arr;
+    });
   };
 
   return (

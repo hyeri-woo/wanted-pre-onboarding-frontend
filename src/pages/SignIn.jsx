@@ -16,6 +16,7 @@ export default function SignIn() {
       alert('로그인에 성공했습니다. 서비스를 자유롭게 이용해주세요!');
       navigate('/todo');
     } else {
+      setPassword('');
       alert('로그인에 실패하였습니다. 다시 시도해주세요!');
     }
   };
@@ -28,7 +29,9 @@ export default function SignIn() {
         isJoin={false}
         btnText="로그인"
         onSubmit={handleSubmit}
+        email={email}
         setEmail={setEmail}
+        password={password}
         setPassword={setPassword}
       />
     </ContainerStyle>

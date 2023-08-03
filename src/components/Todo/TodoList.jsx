@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import TodoItem from './TodoItem/TodoItem';
 
 const TodoListStyle = styled.ul`
-  max-height: 500px;
+  max-height: 480px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -19,6 +19,7 @@ const TodoListStyle = styled.ul`
 
 export default function TodoList(props) {
   const { todo, setTodo } = props;
+
   return (
     <TodoListStyle>
       {todo.length === 0 ? (
