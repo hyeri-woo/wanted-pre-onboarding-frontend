@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import TodoItem from './TodoItem/TodoItem';
 
 const TodoListStyle = styled.ul`
-  max-height: 500px;
+  max-height: 480px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
