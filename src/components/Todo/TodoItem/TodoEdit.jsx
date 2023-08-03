@@ -33,7 +33,7 @@ export default function TodoEdit(props) {
         setMode('view');
       }
     });
-  }, [editRef]);
+  }, [editRef, setMode]);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
