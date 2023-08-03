@@ -4,6 +4,13 @@ import Button from '../../Common/Button';
 import { CheckBoxStyle } from '../../../styles/CommonStyle';
 import { UpdateTodoAPI } from '../../../api/TodoAPI';
 
+const FormStyle = styled.form`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 const LabelStyle = styled(CheckBoxStyle)`
   input[type='text'] {
     width: 100%;
@@ -24,6 +31,7 @@ export default function TodoEdit(props) {
   };
 
   const handleEditClick = async (e) => {
+    e.preventDefault();
     if (window.confirm('수정하시겠습니까?')) {
       const data = await UpdateTodoAPI(token, id, checked, inputValue);
       setTodo((prev) => {
@@ -40,7 +48,7 @@ export default function TodoEdit(props) {
   };
 
   return (
-    <>
+    <FormStyle>
       <LabelStyle>
         <input type="checkbox" checked={checked} onChange={onCheckChange} />
         <input
@@ -67,6 +75,6 @@ export default function TodoEdit(props) {
           onBtnClick={handleCancelClick}
         />
       </span>
-    </>
+    </FormStyle>
   );
 }
