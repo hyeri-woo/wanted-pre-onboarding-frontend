@@ -5,14 +5,13 @@ import { DeleteTodoAPI } from '../../../api/TodoAPI';
 
 export default function TodoView(props) {
   const { text, id, checked, setTodo, setMode, onCheckChange } = props;
-  const token = localStorage.getItem('token');
 
   const handleEditClick = () => {
     setMode('edit');
   };
 
   const handleDeleteClick = async (e) => {
-    const success = await DeleteTodoAPI(token, id);
+    const success = await DeleteTodoAPI(id);
     if (success) {
       setTodo((prev) => prev.filter((item) => item.id !== id));
     }

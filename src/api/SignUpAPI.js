@@ -6,7 +6,6 @@ const SignUpAPI = async (email, password) => {
       'email': email,
       'password': password,
     });
-    console.log(response);
     if (response.status === 201) {
       return true;
     }

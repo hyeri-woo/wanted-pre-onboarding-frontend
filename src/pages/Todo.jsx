@@ -20,7 +20,7 @@ export default function Todo() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await GetTodoAPI(localStorage.getItem('token'));
+      const data = await GetTodoAPI();
       setTodo(data);
       setFilterTodo(data);
     };

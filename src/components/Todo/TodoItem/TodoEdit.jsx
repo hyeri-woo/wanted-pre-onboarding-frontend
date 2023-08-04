@@ -24,7 +24,6 @@ const LabelStyle = styled(CheckBoxStyle)`
 
 export default function TodoEdit(props) {
   const { text, id, checked, setTodo, setMode, onCheckChange } = props;
-  const token = localStorage.getItem('token');
   const [inputValue, setInputValue] = useState(text);
   const editRef = useRef(null);
 
@@ -42,7 +41,7 @@ export default function TodoEdit(props) {
 
   const handleEditClick = async (e) => {
     e.preventDefault();
-    const data = await UpdateTodoAPI(token, id, checked, inputValue);
+    const data = await UpdateTodoAPI(id, checked, inputValue);
     setTodo((prev) => {
       const arr = [...prev];
       arr[arr.findIndex((item) => item.id === id)].todo = data.todo;

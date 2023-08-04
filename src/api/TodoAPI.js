@@ -1,12 +1,8 @@
 import api from './index';
 
-const GetTodoAPI = async (token) => {
+const GetTodoAPI = async () => {
   try {
-    const response = await api.get('/todos', {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
-    });
+    const response = await api.get('/todos');
     if (response.status === 200) {
       return response.data;
     }
@@ -15,19 +11,11 @@ const GetTodoAPI = async (token) => {
   }
 };
 
-const CreateTodoAPI = async (token, todo) => {
+const CreateTodoAPI = async (todo) => {
   try {
-    const response = await api.post(
-      '/todos',
-      {
-        'todo': todo,
-      },
-      {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-      },
-    );
+    const response = await api.post('/todos', {
+      'todo': todo,
+    });
     if (response.status === 201) {
       return response.data;
     }
@@ -36,20 +24,12 @@ const CreateTodoAPI = async (token, todo) => {
   }
 };
 
-const UpdateTodoAPI = async (token, id, checked, todo) => {
+const UpdateTodoAPI = async (id, checked, todo) => {
   try {
-    const response = await api.put(
-      `/todos/${id}`,
-      {
-        'todo': todo,
-        'isCompleted': checked,
-      },
-      {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-      },
-    );
+    const response = await api.put(`/todos/${id}`, {
+      'todo': todo,
+      'isCompleted': checked,
+    });
     if (response.status === 200) {
       return response.data;
     }
@@ -58,14 +38,9 @@ const UpdateTodoAPI = async (token, id, checked, todo) => {
   }
 };
 
-const DeleteTodoAPI = async (token, id) => {
+const DeleteTodoAPI = async (id) => {
   try {
-    const response = await api.delete(`/todos/${id}`, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
-    });
-    console.log(response);
+    const response = await api.delete(`/todos/${id}`);
     if (response.status === 204) {
       return true;
     }

@@ -31,7 +31,6 @@ export default function TodoItem(props) {
     setMode('view');
     setIsCheck(e.target.checked);
     const data = await UpdateTodoAPI(
-      localStorage.getItem('token'),
       id,
       e.target.checked,
       e.target.nextElementSibling.innerText,

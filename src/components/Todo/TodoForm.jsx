@@ -36,7 +36,7 @@ export default function TodoForm(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await CreateTodoAPI(localStorage.getItem('token'), item);
+    const data = await CreateTodoAPI(item);
     if (data) {
       setItem('');
       setTodo((prev) => [...prev, data]);
