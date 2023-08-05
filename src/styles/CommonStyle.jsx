@@ -53,6 +53,10 @@ const CheckBoxStyle = styled.label`
   input[type='checkbox']:checked::before {
     transform: scale(1);
   }
+
+  span {
+    text-decoration: ${props => props.checked ? 'line-through' : 'initial' };
+  }
 `;
 
 export { ContainerStyle, HeaderStyle, CheckBoxStyle };

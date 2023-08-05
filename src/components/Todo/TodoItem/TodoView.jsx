@@ -19,7 +19,7 @@ export default function TodoView(props) {
 
   return (
     <>
-      <CheckBoxStyle>
+      <CheckBoxStyle checked={checked}>
         <input type="checkbox" checked={checked} onChange={onCheckChange} />
         <span>{text}</span>
       </CheckBoxStyle>
